@@ -7,12 +7,11 @@ namespace CaixaEletronicoTeste
     [TestClass]
     public class CaixaEletronicoTeste
     {
+        CaixaEletronico caixa = new CaixaEletronico();
         [TestMethod]
         public void Retorna1_100()
         {
-            CaixaEletronico caixa1 = new CaixaEletronico();
-
-            string NotasUsadas = caixa1.sacar(100);
+            string NotasUsadas = caixa.sacar(100);
 
             //VAI RETORNAR DESSE MESMO JETO A QUANTIDADE DE NOTAS QUE QUER
             Assert.AreEqual("nota de 100: 1", NotasUsadas);
@@ -21,9 +20,7 @@ namespace CaixaEletronicoTeste
         [TestMethod]
         public void Retorna2_100()
         {
-            CaixaEletronico caixa1 = new CaixaEletronico();
-
-            string NotasUsadas = caixa1.sacar(200);
+            string NotasUsadas = caixa.sacar(200);
 
             Assert.AreEqual("nota de 100: 2", NotasUsadas);
      
@@ -32,9 +29,8 @@ namespace CaixaEletronicoTeste
         [TestMethod]
         public void Retorna1_50()
         {
-            CaixaEletronico caixa1 = new CaixaEletronico();
 
-            string NotasUsadas = caixa1.sacar(50);
+            string NotasUsadas = caixa.sacar(50);
 
             Assert.AreEqual("nota de 50: 1", NotasUsadas);
         }
@@ -42,9 +38,7 @@ namespace CaixaEletronicoTeste
         [TestMethod]
         public void Retorna1_20()
         {
-            CaixaEletronico caixa1 = new CaixaEletronico();
-
-            string NotasUsadas = caixa1.sacar(20);
+            string NotasUsadas = caixa.sacar(20);
 
             Assert.AreEqual("nota de 20: 1", NotasUsadas);
         }
@@ -52,9 +46,7 @@ namespace CaixaEletronicoTeste
         [TestMethod]
         public void Retorna1_100_1_50()
         {
-            CaixaEletronico caixa1 = new CaixaEletronico();
-
-            string NotasUsadas = caixa1.sacar(150);
+            string NotasUsadas = caixa.sacar(150);
 
             Assert.AreEqual("nota de 100: 1" + "nota de 50: 1", NotasUsadas);
         }
@@ -62,9 +54,7 @@ namespace CaixaEletronicoTeste
         [TestMethod]
         public void Retorna1_100_1_50_1_20_1_10()
         {
-            CaixaEletronico caixa1 = new CaixaEletronico();
-
-            string NotasUsadas = caixa1.sacar(180);
+            string NotasUsadas = caixa.sacar(180);
 
             Assert.AreEqual("nota de 100: 1" + "nota de 50: 1" + 
                             "nota de 20: 1" + "nota de 10: 1", NotasUsadas);
@@ -73,9 +63,7 @@ namespace CaixaEletronicoTeste
         [TestMethod]
         public void Retorna10_100()
         {
-            CaixaEletronico caixa1 = new CaixaEletronico();
-
-            string NotasUsadas = caixa1.sacar(1000);
+            string NotasUsadas = caixa.sacar(1000);
 
             Assert.AreEqual("nota de 100: 10" , NotasUsadas);
         }
@@ -83,9 +71,7 @@ namespace CaixaEletronicoTeste
         [TestMethod]
         public void Retorna10_100_1_50()
         {
-            CaixaEletronico caixa1 = new CaixaEletronico();
-
-            string NotasUsadas = caixa1.sacar(1050);
+            string NotasUsadas = caixa.sacar(1050);
 
             Assert.AreEqual("nota de 100: 10" + "nota de 50: 1", NotasUsadas);
         }
@@ -93,9 +79,7 @@ namespace CaixaEletronicoTeste
         [TestMethod]
         public void Retorna10_100_1_50_1_20_1_10()
         {
-            CaixaEletronico caixa1 = new CaixaEletronico();
-
-            string NotasUsadas = caixa1.sacar(1080);
+            string NotasUsadas = caixa.sacar(1080);
 
             Assert.AreEqual("nota de 100: 10" + "nota de 50: 1" + "nota de 20: 1" + "nota de 10: 1", NotasUsadas);
         }
@@ -103,9 +87,7 @@ namespace CaixaEletronicoTeste
         [TestMethod]
         public void Retorna8_100_1_50_1_10()
         {
-            CaixaEletronico caixa1 = new CaixaEletronico();
-
-            string NotasUsadas = caixa1.sacar(860);
+            string NotasUsadas = caixa.sacar(860);
 
             Assert.AreEqual("nota de 100: 8" + "nota de 50: 1" + "nota de 10: 1", NotasUsadas);
         }
@@ -113,9 +95,7 @@ namespace CaixaEletronicoTeste
         [TestMethod]
         public void RetornaCedulaIndisponivel()
         {
-            CaixaEletronico caixa1 = new CaixaEletronico();
-
-            string NotasUsadas = caixa1.sacar(0);
+            string NotasUsadas = caixa.sacar(0);
 
             Assert.AreEqual("Valor inválido", NotasUsadas);
         }
@@ -123,9 +103,7 @@ namespace CaixaEletronicoTeste
         [TestMethod]
         public void RetornaNegativo()
         {
-            CaixaEletronico caixa1 = new CaixaEletronico();
-
-            string NotasUsadas = caixa1.sacar(-2);
+            string NotasUsadas = caixa.sacar(-2);
 
             Assert.AreEqual("Valor inválido", NotasUsadas);
         }
@@ -133,9 +111,7 @@ namespace CaixaEletronicoTeste
         [TestMethod]
         public void RetornaSemCedula()
         {
-            CaixaEletronico caixa1 = new CaixaEletronico();
-
-            string NotasUsadas = caixa1.sacar(133);
+            string NotasUsadas = caixa.sacar(133);
 
             Assert.AreEqual("Cédula indisponível", NotasUsadas);
         }
